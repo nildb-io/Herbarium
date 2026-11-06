@@ -4,6 +4,12 @@ body{
     padding: 0;
     overflow-x: hidden;
 }
+.box {
+    box-sizing: border-box;
+    width: 300px;
+    padding: 20px;
+    border: 5px solid black;
+}
 .top-box{
  overflow: hidden;
 }
@@ -132,8 +138,8 @@ button{
     margin: 0;
     height: 100px;
     width: 400px;
-    margin-top: 0px;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
@@ -252,11 +258,10 @@ button{
 }
 .cloud-img{
    position: absolute;
-   
    width: 0%;
-   height: 800px;
+   height: 1200px;
    z-index: 5;
-   top: 90px;
+   bottom: -350px;
    left: 0;
    opacity: 0.2;
    transition: width 1.5s ease-in-out,
@@ -284,18 +289,19 @@ button{
 }
 
 .sp-container{        /*container color*/
-    margin-top: 300px;
     height: 800px;
-    
     width: 100%;
     position: relative;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     animation: appear-X linear both ;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
     animation-timing-function: ease;
 }
-.sp-family{           /*colour and padding left for inline for diff sp.*/
+.sp-family{   
+  display: flex;
+  flex-direction: column;          /*colour and padding left for inline for diff sp.*/
  font-family: Lato;
  font-size: 20px;
  word-spacing: 10px;
@@ -309,7 +315,9 @@ button{
  padding-top: 14px;
 }
 .sp-info{
-    width: 800px;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 760px;
     padding-top: 20px;
     padding-left:50px; 
 }
@@ -327,7 +335,7 @@ button{
     font-family: Lato;
     padding-top: 15px;
     font-size: 20px;
-    width: 760px;
+    width: 100%;
     padding-left:50px;
 }
 
@@ -380,7 +388,7 @@ button{
 @keyframes appear-Y{
     from{
     opacity: 0;
-    transform: translateY(-200px);
+    transform: translateY(-100px);
     }
     to{
      opacity: 1;
@@ -392,12 +400,134 @@ button{
 }
 .altitude{
     font-family: Cormorant Garmond;
+    height: 300px;
      font-size: 40px;
      font-style: italic;
      text-align: center;
      word-spacing: 10px;
+     position: relative;
 }
-        
-       
+@media (min-width:1500px) and (max-width:1700px) {
+
+  .sp-container:nth-child( even of .sp-container) .sp-family {
+       padding-right: 800px !important;
+       flex-shrink: 400px;
+       font-size: 17px;
+
+    }
+    .sp-container:nth-child( odd of .sp-container) .sp-family {
+       padding-left: 700px !important;
+       font-size: 17px;
+    }
+
+    .sp-info {
+        width: 500px;
+        max-width: 600px;
+    }
+
+    .sp-dist,
+    .sp-growth-habit,
+    .sp-field-notes {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .ground-orchid-img,
+    .lillifera-img,
+    .bamboo-img,
+    .jstricta-img,
+    .grandiflora-img,
+    .rainlily-img,
+    .rose-img,
+    .jindica-img {
+        width: 34%;
+        height: 650px;
+    }
+
+    .vanda-img img {
+        width: 600px !important;
+        height: 650px !important;
+        object-fit: cover;
+    }
+.button-set {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.button-set {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 0 12px;
+        box-sizing: border-box;
+    }
+
+    .button-set button {
+        width: auto;
+        flex: 1 1 0;
+        min-width: 0;
+    }
+}  
+  
+@media (min-width:1200px) and (max-width:1500px) {
+
+  .sp-container:nth-child( even of .sp-container) .sp-family {
+       padding-right: 600px !important;
+       font-size: 15px;
+
+    }
+    .sp-container:nth-child( odd of .sp-container) .sp-family {
+       padding-left: 600px !important;
+       font-size: 15px;
+    }
+   
+    .sp-info {
+        grid-template-columns: 500px;
+    }
+    .sp-dist-title,         /* All Titles*/
+    .sp-growth-habit-title,
+    .sp-field-note-title{
+    font-size: 25px;
+    }
+    .sp-dist,
+    .sp-growth-habit,
+    .sp-field-notes {
+        width: 100%;
+        max-width: 550px;
+        font-size: 15px;
+    }
+    .vanda-img,
+    .ground-orchid-img,
+    .lillifera-img,
+    .bamboo-img,
+    .jstricta-img,
+    .grandiflora-img,
+    .rainlily-img,
+    .rose-img,
+    .jindica-img {
+        width: 34%;
+        height: 650px;
+    }
+
+    .vanda-img img {
+        width: 500px !important;
+        height: 550px !important;
+        object-fit: cover;
+    }
+    .button-set {
+        display: flex;
+        justify-content: space-between;
+        gap: 25px;
+        padding: 0 12px;
+        box-sizing: border-box;
+    }
+
+    .button-set button {
+        width: auto;
+        flex: 1 1 0;
+        min-width: 0;
+    } 
+}  
         
         
